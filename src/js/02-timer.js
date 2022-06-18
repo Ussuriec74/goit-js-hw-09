@@ -72,15 +72,16 @@ function addLeadingZero(value) {
 
 function makeTimer() {
  timeIntervalId = setInterval(() => {
-    const difference = deadlineDate - new Date();
-    const { days, hours, minutes, seconds } = convertMs(difference);
-    dayValueRef.textContent = addLeadingZero(days);
-    hourValueRef.textContent = addLeadingZero(hours);
-    minuteValueRef.textContent = addLeadingZero(minutes);
-    secondValueRef.textContent = addLeadingZero(seconds);
-    if (difference < 1000) {
+   const difference = deadlineDate - new Date();
+   if (difference < 1000) {
       clearInterval(timeIntervalId);
       Notiflix.Notify.failure('DEADLINE!!!');
     }
+  const { days, hours, minutes, seconds } = convertMs(difference);
+  dayValueRef.textContent = addLeadingZero(days);
+  hourValueRef.textContent = addLeadingZero(hours);
+  minuteValueRef.textContent = addLeadingZero(minutes);
+  secondValueRef.textContent = addLeadingZero(seconds);
+    
  }, 1000);
 }
