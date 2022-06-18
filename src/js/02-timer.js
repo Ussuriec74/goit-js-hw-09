@@ -73,7 +73,6 @@ function addLeadingZero(value) {
 function makeTimer() {
  let timeIntervalId = setInterval(() => {
    const difference = deadlineDate - new Date();
-   console.log(difference);
    if (difference < 1000) {
       clearInterval(timeIntervalId);
       Notiflix.Notify.failure('DEADLINE!!!');
