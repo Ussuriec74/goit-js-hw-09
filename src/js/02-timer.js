@@ -71,7 +71,7 @@ function addLeadingZero(value) {
 
 
 function makeTimer() {
- timeIntervalId = setInterval(() => {
+ const timeIntervalId = setInterval(() => {
    const difference = deadlineDate - new Date();
    console.log(difference);
    if (difference < 1000) {
