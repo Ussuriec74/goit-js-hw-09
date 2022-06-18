@@ -78,7 +78,7 @@ function makeTimer() {
     hourValueRef.textContent = addLeadingZero(hours);
     minuteValueRef.textContent = addLeadingZero(minutes);
     secondValueRef.textContent = addLeadingZero(seconds);
-    if (difference <= 999) {
+    if (difference < 1000) {
       clearInterval(timeIntervalId);
       Notiflix.Notify.failure('DEADLINE!!!');
     }
