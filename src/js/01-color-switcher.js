@@ -8,9 +8,6 @@ let intervalId;
 startBtnRef.addEventListener("click", throttle(onClickStartBtn,1000));
 stopBtnRef.addEventListener("click", onClickStopBtn);
 
-startBtnRef.disabled = false;
-startBtnRef.disabled = true;
-
 function onClickStartBtn() {
   startBtnRef.disabled = true;
   intervalId = setInterval(() => {
