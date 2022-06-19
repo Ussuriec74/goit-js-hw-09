@@ -1,21 +1,26 @@
+import throttle from "lodash.throttle";
+
 const startBtnRef = document.querySelector("[data-start]");
 const stopBtnRef = document.querySelector("[data-stop]");
 const bodyRef = document.querySelector("body");
 let intervalId;
 
-startBtnRef.addEventListener("click", onClickStartBtn);
+startBtnRef.addEventListener("click", throttle(onClickStartBtn,1000));
 stopBtnRef.addEventListener("click", onClickStopBtn);
 
+startBtnRef.disabled = false;
+startBtnRef.disabled = true;
+
 function onClickStartBtn() {
+  startBtnRef.disabled = true;
   intervalId = setInterval(() => {
     bodyRef.style.backgroundColor = getRandomHexColor();
-    startBtnRef.removeEventListener("click", onClickStartBtn);
   }, 1000)
 }
 
 function onClickStopBtn() {
   clearInterval(intervalId);
-  startBtnRef.addEventListener("click", onClickStartBtn);
+  startBtnRef.disabled = false;
 }
 
 function getRandomHexColor() {
